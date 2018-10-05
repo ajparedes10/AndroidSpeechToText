@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnMic"
-        android:layout_width="105dp"
-        android:layout_height="110dp"
-        android:layout_marginBottom="80dp"
-        android:background="@drawable/microphone_settings"
-        android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/textSpeech"
         android:layout_width="wrap_content"

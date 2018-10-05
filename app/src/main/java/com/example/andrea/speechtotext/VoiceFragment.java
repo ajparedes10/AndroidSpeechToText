@@ -14,7 +14,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,10 +24,9 @@ import java.util.Locale;
 
 
 
-public class VoiceFragment extends Fragment implements View.OnClickListener {
+public class VoiceFragment extends Fragment  {
 
     private TextView result;
-    private Button speakButton;
     private ProgressBar progressBar;
 
     private TextToSpeech toSpeech;
@@ -48,12 +46,10 @@ public class VoiceFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // infla el layout del fragmento
         View myView = inflater.inflate(R.layout.fragment_voice, container, false);
-        speakButton =  myView.findViewById(R.id.btnMic);
         result =  myView.findViewById(R.id.textSpeech);
         progressBar = myView.findViewById(R.id.progressBar);
         progressBar.setVisibility(View.INVISIBLE);
 
-        speakButton.setOnClickListener(this);
         //crea el SpeechRecognizer y su listener
         sr = SpeechRecognizer.createSpeechRecognizer(getActivity());
         sr.setRecognitionListener(new listener());
@@ -120,13 +116,6 @@ public class VoiceFragment extends Fragment implements View.OnClickListener {
             Log.d(TAG, "onEvent " + eventType);
         }
     }
-
-    public void onClick(View v) {
-        if (v.getId() == R.id.btnMic) {
-            recordSpeak();
-        }
-    }
-
 
     public void recordSpeak() {
         //si la app no tiene permiso para usar microfono, lo pide
